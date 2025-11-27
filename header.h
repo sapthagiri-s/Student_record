@@ -28,6 +28,3 @@ class StudentRecord {
     void delete_student();
 <<<<<<< HEAD
 };
-=======
-};
->>>>>>> feature
