@@ -34,6 +34,12 @@ int main()
         case 3:
             sr.search_student();
             break;
+        case 4:
+            sr.update_student();
+            break;
+        case 5:
+           sr.delete_student();
+            break;
         default:
             break;
         }

@@ -84,3 +84,99 @@ void StudentRecord::search_student() {
         cout << "Student with name " << name << " not found." << endl;
     }
 }
+
+//Function to search_name by name and return index
+int StudentRecord::search_name(string name) {
+    for(size_t i = 0; i < records.size(); ++i) {
+        if(records[i].student_name_and_father_name == name) {
+            return i;
+        }
+    }
+    return -1; // Not found
+}
+//Function to menu for updating student record
+int StudentRecord::menu_update_function() {
+    cout << "Select the field to update:" << endl;
+    cout << "1. Roll Number" << endl;
+    cout << "2. Name and Father's Name" << endl;
+    cout << "3. Department" << endl;
+    cout << "4. Semester 1 Marks" << endl;
+    cout << "5. Semester 2 Marks" << endl;
+    cout << "6. Semester 3 Marks" << endl;
+    cout << "7. Semester 4 Marks" << endl;
+    cout << "8. Semester 5 Marks" << endl;
+    cout << "Enter your choice: ";
+    int choice;
+    cin >> choice;
+    return choice;
+}
+
+//Function to update a student record
+void StudentRecord::update_student() {
+    // Implementation for updating a student record
+    string name;
+    cout << "Enter the student name to update: " << endl;
+    cin.ignore(); // To ignore the newline character left in the buffer
+    getline(cin, name);
+    int index = search_name(name);
+    if(index == -1) {
+        cout << "Student with name " << name << " not found." << endl;
+        return;
+    }
+    Student &s = records[index];
+    cout << "Updating record for " << s.student_name_and_father_name << endl;
+    switch(menu_update_function()) {
+        case 1:
+            cout << "Enter new roll number: ";
+            cin >> s.roll_no;
+            break;
+        case 2:
+            cout << "Enter new name and father's name: ";
+            cin.ignore();
+            getline(cin, s.student_name_and_father_name);
+            break;
+        case 3:
+            cout << "Enter new department: ";
+            cin >> s.department;
+            break;
+        case 4:
+            cout << "Enter new semester 1 marks: ";
+            cin >> s.sem1_marks;
+            break;
+        case 5:
+            cout << "Enter new semester 2 marks: ";
+            cin >> s.sem2_marks;
+            break;
+        case 6:
+            cout << "Enter new semester 3 marks: ";
+            cin >> s.sem3_marks;
+            break;
+        case 7:
+            cout << "Enter new semester 4 marks: ";
+            cin >> s.sem4_marks;
+            break;
+        case 8:
+            cout << "Enter new semester 5 marks: ";
+            cin >> s.sem5_marks;
+            break;
+        default:
+            cout << "Invalid choice!" << endl;
+            return;
+    }
+    cout << "Student record updated successfully!" << endl;
+}
+
+//Function to delete a student record
+void StudentRecord::delete_student() {
+    string name;
+    cout << "Enter the student name to delete: " << endl;
+    cin.ignore(); // To ignore the newline character left in the buffer
+    getline(cin, name);
+    int index = search_name(name);
+    if(index == -1) {
+        cout << "Student with name " << name << " not found." << endl;
+        return;
+    }
+    records.erase(records.begin() + index);
+    cout << "Student record deleted successfully!" << endl;
+}
