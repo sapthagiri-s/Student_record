@@ -19,7 +19,7 @@ int StudentRecord::menu_driven_function()
 int main()
 {
     StudentRecord sr;
-
+    sr.load_from_file();
     char choice = 'y';
     while (choice == 'y' || choice == 'Y')
     {
@@ -38,11 +38,12 @@ int main()
             sr.update_student();
             break;
         case 5:
-           sr.delete_student();
+            sr.delete_student();
             break;
         default:
             break;
         }
+        sr.save_to_file();
         cout << "Do you want to continue (y/n): ";
         cin >> choice;
     }

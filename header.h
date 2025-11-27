@@ -20,6 +20,8 @@ public:
     void search_student();
     void update_student();
     void delete_student();
+    void save_to_file();
+    void load_from_file();
 
 private:
     vector<Student> records;
