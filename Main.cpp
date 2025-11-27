@@ -1,10 +1,14 @@
 #include "header.h"
 
-
 // Function to display menu and get user choice
-int StudentRecord::menu_driven_function() {
+int StudentRecord::menu_driven_function()
+{
     cout << "Menu for student record management." << endl;
-    cout << "1. Add Student" << endl << "2. Display Students" << endl << "3. Search Student" << endl << "4. update Student" << endl << "5. Delete Student" << endl;
+    cout << "1. Add Student" << endl
+         << "2. Display Students" << endl
+         << "3. Search Student" << endl
+         << "4. update Student" << endl
+         << "5. Delete Student" << endl;
     cout << "Enter your choice: ";
     int choice;
     cin >> choice;
@@ -12,11 +16,13 @@ int StudentRecord::menu_driven_function() {
 }
 
 // Main function
-int main() {
+int main()
+{
     StudentRecord sr;
 
     char choice = 'y';
-    while(choice == 'y' || choice == 'Y') {
+    while (choice == 'y' || choice == 'Y')
+    {
         switch (sr.menu_driven_function())
         {
         case 1:
@@ -24,6 +30,9 @@ int main() {
             break;
         case 2:
             sr.display_students();
+            break;
+        case 3:
+            sr.search_student();
             break;
         default:
             break;

@@ -37,6 +37,7 @@ void StudentRecord::add_student() {
     cout << "Student record added successfully!" << endl;
 }
 
+// Function to display all student records
 void StudentRecord::display_students() {
     if(records.empty()) {
         cout << "No student records available." << endl;
@@ -53,5 +54,33 @@ void StudentRecord::display_students() {
         cout << "Semester 5 Percentage: " << student.sem5_marks << endl;
         cout << "CGPA: " << student.cgpa << endl;
         cout << "-----------------------------" << endl;
+    }
+}
+
+// Function to search for a student by name
+void StudentRecord::search_student() {
+    string name;
+    cout << "Enter the student name to search: " << endl;
+    cin.ignore(); // To ignore the newline character left in the buffer
+    getline(cin, name);
+    bool found = false;
+    for(const auto& student : records) {
+        if(student.student_name_and_father_name == name) {
+            cout << "Student found!" << endl;
+            cout << "Roll No: " << student.roll_no << endl;
+            cout << "Name and Father's Name: " << student.student_name_and_father_name << endl;
+            cout << "Department: " << student.department << endl;
+            cout << "Semester 1 Percentage: " << student.sem1_marks << endl;
+            cout << "Semester 2 Percentage: " << student.sem2_marks << endl;
+            cout << "Semester 3 Percentage: " << student.sem3_marks << endl;
+            cout << "Semester 4 Percentage: " << student.sem4_marks << endl;
+            cout << "Semester 5 Percentage: " << student.sem5_marks << endl;
+            cout << "CGPA: " << student.cgpa << endl;
+            found = true;
+            break;
+        }
+    }
+    if(!found) {
+        cout << "Student with name " << name << " not found." << endl;
     }
 }
