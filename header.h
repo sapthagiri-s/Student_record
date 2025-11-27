@@ -26,4 +26,8 @@ class StudentRecord {
     void search_student();
     void update_student();
     void delete_student();
+<<<<<<< HEAD
 };
+=======
+};
+>>>>>>> feature
